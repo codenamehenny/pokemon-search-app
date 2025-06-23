@@ -43,3 +43,6 @@ try {
  }
 
 }
+
+// event listener for the button
+document.getElementById("searchButton").addEventListener("click", searchPokemon);
