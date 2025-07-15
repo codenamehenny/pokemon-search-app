@@ -15,7 +15,7 @@ if (!input) {
 
 try {
     // using the input to fetch data from the PokeAPI 
-    const response = await fetch('https://pokeapi.co/api/v2/pokemon/${input}');
+    const response = await fetch('https://pokeapi.co/api/v2/pokemon${input}');
     
     if (!response.ok) {
         throw new Error("Whoops! Pokemon not found");
@@ -28,7 +28,7 @@ try {
     name.textContent = 'Name: ${data.name}';
 
     const image = document.createElement("img");
-    image.src = data.spites.front_default;
+    image.src = data.sprites.front_default;
     image.alt = data.name;
 
     const type = document.createElement("p");
