@@ -5,8 +5,8 @@ async function searchPokemon() {
     const errorDiv = document.getElementById("errorMessage")
 
 // this section clears previous errors or results
-errorDiv.textcontent = "";
-container.innerhtml = "";
+errorDiv.textContent = "";
+container.innerHTML = "";
 
 if (!input) {
     errorDiv.textContent = "Please enter a Pokemon name or ID";
@@ -15,7 +15,7 @@ if (!input) {
 
 try {
     // using the input to fetch data from the PokeAPI 
-    const response = await fetch('https://pokeapi.co/api/v2/pokemon${input}');
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${input}`);
     
     if (!response.ok) {
         throw new Error("Whoops! Pokemon not found");
@@ -25,14 +25,14 @@ try {
 
     // Create and populate html elements with Pokemon data
     const name = document.createElement("h2");
-    name.textContent = 'Name: ${data.name}';
+    name.textContent = `Name: ${data.name}`;
 
     const image = document.createElement("img");
     image.src = data.sprites.front_default;
     image.alt = data.name;
 
     const type = document.createElement("p");
-    type.textContent = 'Type: ${data.types.map(t => t.type.name).join(', ')}';
+    type.textContent = `Type: ${data.types.map(t => t.type.name).join(', ')}`;
 
     // Appending elements to container 
     container.appendChild(name);
